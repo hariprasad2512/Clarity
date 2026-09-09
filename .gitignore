@@ -1,6 +1,10 @@
 # Secrets — never commit these
 Clarity/SupabaseConfig.plist
 
+# Release artifacts (built to /tmp, never committed)
+*.dmg
+Clarity-macOS-*.zip
+
 # Xcode
 xcuserdata/
 *.xcworkspace/xcuserdata/

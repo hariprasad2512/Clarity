@@ -24,8 +24,8 @@ Thanks for stopping by. Clarity is a minimal, open-source (MIT) todo app for mac
 
 ## Enabling Google sign-in + sync
 
-1. Create a Supabase project, run `supabase/migrations/20260909000000_create_tasks.sql`
-   in the SQL Editor.
+1. Create a Supabase project, run **every** file in `supabase/migrations/`
+   in its SQL Editor, in order.
 2. Supabase Dashboard → Authentication → Providers → enable **Google**:
    create the OAuth client in Google Cloud Console, add the redirect URL
    `com.harry.Clarity://oauth-callback` to Supabase's Redirect URLs
@@ -34,6 +34,15 @@ Thanks for stopping by. Clarity is a minimal, open-source (MIT) todo app for mac
    and fill in your project URL + anon key. This file is gitignored —
    **never commit keys**.
 4. Re-run. Sign in with Google from the app.
+
+## Cutting a release (maintainers)
+
+1. Build Release, sign with the dev identity (both targets, entitlements),
+   verify with `codesign --verify --deep --strict`.
+2. Zip with `ditto -c -k --sequesterRsrc --keepParent` (never plain `zip`).
+3. `gh release create vX.Y.Z <zip>` with notes — the `bump-cask.yml`
+   workflow updates the Homebrew tap automatically (needs the `TAP_TOKEN`
+   secret; see [AGENTS.md](AGENTS.md) §6).
 
 ## Ground rules
 
@@ -48,3 +57,4 @@ Thanks for stopping by. Clarity is a minimal, open-source (MIT) todo app for mac
   won't open.
 - **No secrets in PRs.** CI builds with signing off and no Supabase keys.
 - Run both schemes (`Clarity`, `ClarityWidget`) in Debug before opening a PR.
+- Update [CHANGELOG.md](CHANGELOG.md) with user-facing changes.

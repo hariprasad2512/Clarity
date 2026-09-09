@@ -15,10 +15,12 @@ belong. Reference implementation: this repo's macOS app (`Clarity/`).
 |---|---|
 | `Clarity/Task.swift` | `@Model TodoTask`: `id, title, dueDate?, isCompleted, createdAt, updatedAt, needsSync` |
 | `Clarity/Shared/` | `SharedStore` (App Group SwiftData), `TaskService` (mutations), `DateParser` (NLP dates + title strip), `NotificationManager/Delegate`, `LaunchAtLogin` |
-| `Clarity/QuickAdd/` | Spotlight bar: key-capable `NSPanel`, Carbon `⌘⇧T` hotkey |
+| `Clarity/QuickAdd/` | Spotlight bar: key-capable `QuickAddPanel`, Carbon `⌘⇧T` hotkey, `QuickAddView` |
 | `Clarity/Views/` | `ContentView` shell, `SidebarView`, `TaskListView`, `AuthView`, `SettingsView` |
 | `Clarity/Supabase/` | `AuthService` (Google OAuth), `SyncEngine` (push/pull, LWW), `SupabaseConfig` |
 | `ClarityWidget/` | Widget + `ToggleTaskIntent`. **Mirror rule:** `WidgetModels.swift` MUST match `Task.swift` property-for-property or the shared store won't open |
+| `ClarityInfo.plist` | App Info: OAuth callback URL scheme `com.harry.Clarity://` |
+| `.github/workflows/bump-cask.yml` | On release: bumps `hariprasad2512/homebrew-clarity` + smoke-install test |
 | `supabase/migrations/` | Ordered SQL. Run all, in order, on any new project |
 | `SupabaseConfig.template.plist` | Copy → `Clarity/SupabaseConfig.plist` (gitignored, never commit keys) |
 
@@ -46,7 +48,25 @@ belong. Reference implementation: this repo's macOS app (`Clarity/`).
 - **Web (Next.js)**: `supabase-js`, the same `supabase/migrations/` applied to the same project, `supabase.auth.signInWithOAuth({ provider: 'google' })`.
 - All three share: §3 schema/RLS/LWW, §4 sync order, Google-only auth, title-only notification (or platform-equivalent) copy.
 
-## 6. Conventions for agents
+## 6. Release + distribution (macOS)
+
+- **Signing reality**: free Apple ID = `Apple Development` cert only.
+  `spctl` reports *rejected* for it, so direct downloads Gatekeeper-block.
+  Paid Developer ID + notarization is the only zero-friction public path.
+- **Current pipeline**: unsigned Release build → manual `codesign` (dev
+  identity, both targets, entitlements) → `codesign --verify --deep --strict`
+  → `ditto -c -k --sequesterRsrc --keepParent` ZIP → `gh release create`
+  with the ZIP.
+- **Distribution**: Homebrew tap (`hariprasad2512/homebrew-clarity`,
+  `Casks/clarity.rb`) is primary; direct ZIP + `xattr -cr` is fallback.
+  First launch needs one-time Finder right-click → Open.
+- **Automation**: publishing a release triggers `bump-cask.yml`, which
+  downloads the ZIP, patches version/sha256/url in the tap, pushes, and
+  smoke-installs on a macOS runner. Requires the `TAP_TOKEN` repo secret
+  (Contents read/write on the tap repo). Bump logic is pure regex — dry-run
+  it on a temp copy before changing it.
+
+## 7. Conventions for agents
 
 - **No secrets in repo**: only `*.template.*` files. Scan diffs for keys/tokens before every commit.
 - **Minimal UI**: sidebar/list-equivalent hierarchy, one capture entry, green accent on Apple platforms.

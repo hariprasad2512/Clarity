@@ -3,17 +3,13 @@
 A minimal, open-source (MIT) todo app for macOS. Capture fast, track simply,
 sync everywhere.
 
-> **v2.0** — sidebar workspace, Google sign-in + Supabase sync, actionable
-> notifications, calendar scheduling with presets, desktop widget. Priorities
-> were removed from the app and the database (see `supabase/migrations/`).
-
 ## ✨ Features
 
 - **Spotlight-style quick add** — `Cmd+Shift+T` from any app opens a floating
-  capture bar (floats above fullscreen apps, cursor ready, `Enter` saves,
-  `Esc` dismisses). Natural dates (`"Pay rent tomorrow at 5pm"`, even
-  `"6.20 pm"`); detected date words are stripped Todoist-style. Optional
-  **Launch at login** keeps capture alive across reboots.
+  bar (above fullscreen apps, cursor ready, `Enter` saves, `Esc` dismisses).
+  Natural dates (`"Pay rent tomorrow at 5pm"`, even `"6.20 pm"`);
+  detected date words are stripped Todoist-style. Optional **Launch at
+  login** keeps capture alive across reboots.
 - **Clean workspace** — sidebar (Today / Inbox / Done with counts) + focused
   list, search, one-line capture with calendar/clock scheduling, adaptive
   hover states, overdue highlighting.
@@ -42,10 +38,14 @@ brew trust hariprasad2512/clarity   # one time, third-party tap
 brew install --cask clarity
 ```
 
+Keep it updated with `brew upgrade --cask clarity` (new releases bump the
+tap automatically — see [CHANGELOG.md](CHANGELOG.md)).
+
 - Requires macOS 26+. First launch needs a one-time Finder right-click →
   Open (free Apple ID signature, not notarized) — afterwards it just works.
-- Or download `Clarity-macOS-v2.0.0.zip` from [Releases](../../releases),
-  move Clarity into Applications, then `xattr -cr /Applications/Clarity.app`.
+- Or download the latest `Clarity-macOS-vX.Y.Z.zip` from
+  [Releases](../../releases), move Clarity into Applications, then
+  `xattr -cr /Applications/Clarity.app`.
 - The widget shares data via the App Group `group.com.harry.Clarity`; a
   Team-signed build enables it automatically.
 
