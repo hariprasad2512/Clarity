@@ -36,11 +36,16 @@ Supabase (Auth + Postgres) · NSDataDetector for natural-language dates
 
 ## 💾 Install (recommended)
 
-Download `Clarity-macOS-v2.0.0.dmg` from the
-[Releases](../../releases) page, open it, drag Clarity into Applications.
+```sh
+brew tap hariprasad2512/clarity
+brew trust hariprasad2512/clarity   # one time, third-party tap
+brew install --cask clarity
+```
 
-- Requires macOS 26+. On first launch from an unsigned build, right-click →
-  Open (or run `xattr -d com.apple.quarantine /Applications/Clarity.app`).
+- Requires macOS 26+. First launch needs a one-time Finder right-click →
+  Open (free Apple ID signature, not notarized) — afterwards it just works.
+- Or download `Clarity-macOS-v2.0.0.zip` from [Releases](../../releases),
+  move Clarity into Applications, then `xattr -cr /Applications/Clarity.app`.
 - The widget shares data via the App Group `group.com.harry.Clarity`; a
   Team-signed build enables it automatically.
 
