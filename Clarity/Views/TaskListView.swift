@@ -65,7 +65,7 @@ struct TaskListView: View {
                 Image(systemName: "plus.circle.fill")
                     .foregroundColor(.green)
                     .font(.system(size: 15))
-                TextField("Add a task — try \"File taxes Friday\"", text: $newTaskTitle)
+                TextField("Add a task — try \"Finish Report\"", text: $newTaskTitle)
                     .textFieldStyle(.plain)
                     .font(.system(size: 15))
                     .lineLimit(1)
