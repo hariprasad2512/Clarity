@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- 1. Copy this file to Clarity/SupabaseConfig.plist (gitignored, never committed) -->
+	<!-- 2. Paste your Supabase project URL + anon key (Project Settings → API) -->
+	<key>url</key>
+	<string>YOUR-SUPABASE-PROJECT-URL</string>
+	<key>anonKey</key>
+	<string>YOUR-SUPABASE-ANON-KEY</string>
+</dict>
+</plist>

@@ -1,30 +1,75 @@
-# Clarity 
+# Clarity
 
-Clarity is a custom, native macOS to-do application designed to help organize a chaotic life. 
+A minimal, open-source (MIT) todo app for macOS. Capture fast, track simply,
+sync everywhere.
 
-Built completely based on the minimalistic philosophy, this app avoids the feature bloat and rigid workflows of standard productivity tools. It offers a minimal, fast, and highly personalized experience.
+> **v2.0** — sidebar workspace, Google sign-in + Supabase sync, actionable
+> notifications, calendar scheduling with presets, desktop widget. Priorities
+> were removed from the app and the database (see `supabase/migrations/`).
 
 ## ✨ Features
 
-* **Native macOS Experience:** Built entirely with SwiftUI for a seamless and responsive desktop interface.
-* **Bold Visual Identity:** Features a massive input box and a clean, unapologetically green aesthetic.
-* **Smart Scheduling:** Integrates Apple's `NSDataDetector` to automatically extract natural language dates (e.g., "Buy groceries tomorrow at 5 PM") directly from your typed tasks.
-* **Manual Overrides:** Includes a native date picker for explicitly setting specific deadlines when needed.
-* **Local Privacy-First Storage:** Powered by SwiftData to act as the brain that remembers your tasks locally on your Mac, with zero cloud reliance.
-* **Smart Alerts:** Utilizes the UserNotifications framework to give you a tap on the shoulder precisely when a task is due, complete with a bug-free cancellation system for completed tasks.
+- **Spotlight-style quick add** — `Cmd+Shift+T` from any app opens a floating
+  capture bar (floats above fullscreen apps, cursor ready, `Enter` saves,
+  `Esc` dismisses). Natural dates (`"Pay rent tomorrow at 5pm"`, even
+  `"6.20 pm"`); detected date words are stripped Todoist-style. Optional
+  **Launch at login** keeps capture alive across reboots.
+- **Clean workspace** — sidebar (Today / Inbox / Done with counts) + focused
+  list, search, one-line capture with calendar/clock scheduling, adaptive
+  hover states, overdue highlighting.
+- **Calendar scheduling** — month grid plus Today / Tomorrow / Weekend
+  presets; manual picks override auto-parse.
+- **Smart actionable alerts** — the task title is the notification, with
+  **Mark Done** and **Remind me later** buttons (delay configurable in
+  Settings, default 1 hour).
+- **Desktop widget** — Today's tasks on your Mac desktop; tap a circle to
+  complete without opening the app.
+- **Google sign-in + cloud sync** — Supabase Auth + Postgres. Local-first:
+  everything works offline; sync is a mirror, never a dependency.
+- **Privacy-first default** — without cloud setup, data stays in local
+  SwiftData. No account, no tracking.
 
-## 🚀 Installation (v1.0 Release)
+## 🛠️ Built with
 
-You can download the compiled app directly from the Releases page and run it immediately on your Mac.
+SwiftUI · SwiftData · WidgetKit + AppIntents · UserNotifications ·
+Supabase (Auth + Postgres) · NSDataDetector for natural-language dates
 
-1. Navigate to the **Releases** section on the right side of this GitHub repository.
-2. Download the latest `Clarity.app` (or the `.zip` containing it).
-3. Drag and drop the `Clarity.app` file directly into your Mac's **Applications** folder.
-4. Drag the app into your Mac Dock to easily access it and see the custom "Focus Lens" logo.
+## 💾 Install (recommended)
 
-## 🛠️ Built With
+Download `Clarity-macOS-v2.0.0.dmg` from the
+[Releases](../../releases) page, open it, drag Clarity into Applications.
 
-* **SwiftUI** - User Interface
-* **SwiftData** - Local Database Modeling
-* **UserNotifications** - macOS Alert System
-* **NSDataDetector** - Natural Language Processing
+- Requires macOS 26+. On first launch from an unsigned build, right-click →
+  Open (or run `xattr -d com.apple.quarantine /Applications/Clarity.app`).
+- The widget shares data via the App Group `group.com.harry.Clarity`; a
+  Team-signed build enables it automatically.
+
+## 🚀 Build it
+
+1. Open `Clarity.xcodeproj` in Xcode 26.6+.
+2. Set your **Team** on the Clarity + ClarityWidget targets, check the
+   App Group `group.com.harry.Clarity` on both.
+3. Run. Works offline immediately.
+
+### Cloud sync (optional)
+
+1. Create a free Supabase project; run every file in `supabase/migrations/`
+   in its SQL Editor, in order.
+2. Enable the **Google** provider in Supabase Auth; add redirect URL
+   `com.harry.Clarity://oauth-callback`.
+3. `cp SupabaseConfig.template.plist Clarity/SupabaseConfig.plist`,
+   fill in your URL + anon key (gitignored — never commit).
+4. Re-run and sign in.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor guide and
+[AGENTS.md](AGENTS.md) for the agent/cross-platform contract.
+
+## 🗺️ Cross-platform future
+
+The `public.tasks` table is the shared contract: client-generated UUID ids,
+per-user RLS, last-write-wins on `updated_at`. Any future iOS / Android / web
+client syncs against the same schema — start at [AGENTS.md](AGENTS.md).
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE).

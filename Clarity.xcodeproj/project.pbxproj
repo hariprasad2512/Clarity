@@ -6,8 +6,46 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		47E5FB6B3051848E008C0881 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 71A1B001A1B0000100000031 /* Supabase */; };
+		71A1B001A1B0000100000014 /* ClarityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1B001A1B0000100000003 /* ClarityWidget.swift */; };
+		71A1B001A1B0000100000015 /* ToggleTaskIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1B001A1B0000100000004 /* ToggleTaskIntent.swift */; };
+		71A1B001A1B0000100000016 /* WidgetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A1B001A1B0000100000005 /* WidgetModels.swift */; };
+		71A1B001A1B0000100000018 /* ClarityWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 71A1B001A1B0000100000001 /* ClarityWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71A1B001A1B0000100000020 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47E26CF1300E2BD6001DD141 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71A1B001A1B0000100000010;
+			remoteInfo = ClarityWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71A1B001A1B0000100000017 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				71A1B001A1B0000100000018 /* ClarityWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		47E26CF9300E2BD7001DD141 /* Clarity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clarity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A1B001A1B0000100000001 /* ClarityWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClarityWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A1B001A1B0000100000003 /* ClarityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityWidget.swift; sourceTree = "<group>"; };
+		71A1B001A1B0000100000004 /* ToggleTaskIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleTaskIntent.swift; sourceTree = "<group>"; };
+		71A1B001A1B0000100000005 /* WidgetModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModels.swift; sourceTree = "<group>"; };
+		71A1B001A1B0000100000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71A1B001A1B0000100000007 /* ClarityWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClarityWidget.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +61,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E5FB6B3051848E008C0881 /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71A1B001A1B0000100000012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				47E26CFB300E2BD7001DD141 /* Clarity */,
+				71A1B001A1B0000100000002 /* ClarityWidget */,
 				47E26CFA300E2BD7001DD141 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +88,21 @@
 			isa = PBXGroup;
 			children = (
 				47E26CF9300E2BD7001DD141 /* Clarity.app */,
+				71A1B001A1B0000100000001 /* ClarityWidget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		71A1B001A1B0000100000002 /* ClarityWidget */ = {
+			isa = PBXGroup;
+			children = (
+				71A1B001A1B0000100000003 /* ClarityWidget.swift */,
+				71A1B001A1B0000100000004 /* ToggleTaskIntent.swift */,
+				71A1B001A1B0000100000005 /* WidgetModels.swift */,
+				71A1B001A1B0000100000006 /* Info.plist */,
+				71A1B001A1B0000100000007 /* ClarityWidget.entitlements */,
+			);
+			path = ClarityWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,20 +115,40 @@
 				47E26CF5300E2BD6001DD141 /* Sources */,
 				47E26CF6300E2BD6001DD141 /* Frameworks */,
 				47E26CF7300E2BD6001DD141 /* Resources */,
+				71A1B001A1B0000100000017 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				71A1B001A1B0000100000019 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				47E26CFB300E2BD7001DD141 /* Clarity */,
 			);
 			name = Clarity;
 			packageProductDependencies = (
+				71A1B001A1B0000100000031 /* Supabase */,
 			);
 			productName = Clarity;
 			productReference = 47E26CF9300E2BD7001DD141 /* Clarity.app */;
 			productType = "com.apple.product-type.application";
+		};
+		71A1B001A1B0000100000010 /* ClarityWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71A1B001A1B0000100000021 /* Build configuration list for PBXNativeTarget "ClarityWidget" */;
+			buildPhases = (
+				71A1B001A1B0000100000011 /* Sources */,
+				71A1B001A1B0000100000012 /* Frameworks */,
+				71A1B001A1B0000100000013 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClarityWidget;
+			productName = ClarityWidget;
+			productReference = 71A1B001A1B0000100000001 /* ClarityWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -83,6 +163,9 @@
 					47E26CF8300E2BD6001DD141 = {
 						CreatedOnToolsVersion = 26.6;
 					};
+					71A1B001A1B0000100000010 = {
+						CreatedOnToolsVersion = 26.6;
+					};
 				};
 			};
 			buildConfigurationList = 47E26CF4300E2BD6001DD141 /* Build configuration list for PBXProject "Clarity" */;
@@ -94,18 +177,29 @@
 			);
 			mainGroup = 47E26CF0300E2BD6001DD141;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				71A1B001A1B0000100000030 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 47E26CFA300E2BD7001DD141 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				47E26CF8300E2BD6001DD141 /* Clarity */,
+				71A1B001A1B0000100000010 /* ClarityWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		47E26CF7300E2BD6001DD141 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71A1B001A1B0000100000013 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +216,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71A1B001A1B0000100000011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71A1B001A1B0000100000014 /* ClarityWidget.swift in Sources */,
+				71A1B001A1B0000100000015 /* ToggleTaskIntent.swift in Sources */,
+				71A1B001A1B0000100000016 /* WidgetModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71A1B001A1B0000100000019 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71A1B001A1B0000100000010 /* ClarityWidget */;
+			targetProxy = 71A1B001A1B0000100000020 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		47E26D04300E2BD9001DD141 /* Debug */ = {
@@ -248,13 +360,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clarity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYBH4G7TJ4;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClarityInfo.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -278,13 +403,26 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Clarity.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYBH4G7TJ4;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClarityInfo.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,6 +437,65 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		71A1B001A1B0000100000022 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ClarityWidget/ClarityWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYBH4G7TJ4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClarityWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.Clarity.ClarityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		71A1B001A1B0000100000023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ClarityWidget/ClarityWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZYBH4G7TJ4;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ClarityWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harry.Clarity.ClarityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -324,7 +521,35 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		71A1B001A1B0000100000021 /* Build configuration list for PBXNativeTarget "ClarityWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A1B001A1B0000100000022 /* Debug */,
+				71A1B001A1B0000100000023 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		71A1B001A1B0000100000030 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71A1B001A1B0000100000031 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71A1B001A1B0000100000030 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 47E26CF1300E2BD6001DD141 /* Project object */;
 }
